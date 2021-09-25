@@ -21,6 +21,7 @@ export default function Index({time, func}) {
         counter()
        if (count < 1) {
         clearTimeout(countInterval)
+        func()
        }
     },[count])
 

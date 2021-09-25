@@ -22,7 +22,7 @@ export default function Index() {
             
             <img src={goku} alt="" srcset=""  className='img-fluid'/>
         </div>
-        <Timer time={20} func={()=>{console.log('hello world');}}/>
+        <Timer time={5} func={()=>{console.log('hello world');}}/>
         </>
     )
 }
