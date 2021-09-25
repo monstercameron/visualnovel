@@ -5,6 +5,7 @@
   height: 500px;
   cursor: pointer;
   display: inline-block;
+  position: absolute;
 }
 
 .ee {
@@ -14,6 +15,8 @@
   height: 500px;
   cursor: pointer;
   display: inline-block;
+  position: absolute;
+  right: 400px;
 }
 
 .mc,

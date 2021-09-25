@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import {loader, outerLoader} from './index.module.css'
+import {loader, outerLoader, loaderPost} from './index.module.css'
 
 export default function Index({time, func}) {
-    const MAX_WIDTH = 720
+    const MAX_WIDTH = 407
     const STEPS = MAX_WIDTH / time
     const [count, setCount] = useState(time)
     const [width, setWidth] = useState(MAX_WIDTH)
@@ -19,7 +19,7 @@ export default function Index({time, func}) {
     useEffect(() => {
         console.log('useEffect', countInterval)
         counter()
-       if (count < 1) {
+       if (count < 0) {
         clearTimeout(countInterval)
         func()
        }
@@ -28,10 +28,13 @@ export default function Index({time, func}) {
 
     console.log(`width:${width}, count:${count}`)
     return (
-        <div className={outerLoader}>
-            <div className={loader} style={{width:`${width}px`}}>
-                timer
+        <>
+            <div className={outerLoader}>
+                <div className={loaderPost}>
+                </div>
+                <div className={loader} style={{width:`${width}px`}}>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

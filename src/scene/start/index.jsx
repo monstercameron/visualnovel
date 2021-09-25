@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../store/store";
-import { mc } from "./index.module.css";
+import { mc, parent } from "./index.module.css";
 import goku from "../../assets/Goku.png";
 import Timer from "../../components/timer";
 import Button from "../../components/buttons/play";
@@ -34,7 +34,7 @@ export default function Index() {
 	console.log("start: choice-", choice);
 
 	return (
-		<>
+		<div className={parent}>
 			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
 				<img src={goku} alt="" srcset="" className="img-fluid" />
 			</div>
@@ -45,11 +45,11 @@ export default function Index() {
 				time={5}
 				func={next}
 			/>
-			<Button fn={next}/>
+			{/* <Button fn={next}/>
             <Tree options={[
                 'route a',
                 'route b'
-            ]} defaultOpt={1} func={getChoice}/>
-		</>
+            ]} defaultOpt={1} func={getChoice}/> */}
+		</div>
 	);
 }
