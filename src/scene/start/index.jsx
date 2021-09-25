@@ -27,6 +27,7 @@ export default function Index() {
 	};
 
 	const next = () => {
+        console.log('NEXT!')
 		history.push("/test");
 	};
 
