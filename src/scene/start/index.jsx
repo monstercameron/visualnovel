@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {mc} from './index.module.css'
 import goku from '../../assets/Goku.png'
+import Timer from '../../components/timer'
 
 export default function Index() {
     const [move, setMove] = useState('')
@@ -21,6 +22,7 @@ export default function Index() {
             
             <img src={goku} alt="" srcset=""  className='img-fluid'/>
         </div>
+        <Timer time={20} func={()=>{console.log('hello world');}}/>
         </>
     )
 }

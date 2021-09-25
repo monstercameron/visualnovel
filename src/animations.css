@@ -36,3 +36,26 @@
     transform: rotate(-1deg);
   }
 }
+
+
+.idle {
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-name: idleanimation;
+    transform-origin: 200px 400px;
+  }
+  
+  @keyframes idleanimation {
+    0% {
+      transform: rotate(-1deg);
+      color: saddlebrown;
+    }
+    50% {
+      color: slateblue;
+      transform: rotate(1deg);
+    }
+    100% {
+      color: slateblue;
+      transform: rotate(-1deg);
+    }
+  }
