@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../../store/store";
 import { mc } from "./index.module.css";
 import goku from "../../assets/Goku.png";
 import Timer from "../../components/timer";
 import Button from "../../components/buttons/play";
+import Tree from "../../components/buttons/tree";
 
 export default function Index() {
+    const test = useContext(Context);
+    console.log(test);
 	const [move, setMove] = useState("");
 	const clickToMove = (e) => {
 		//print(e)
@@ -14,6 +18,14 @@ export default function Index() {
 			setMove("move");
 		}
 	};
+
+	const [choice, setChoice] = useState("");
+    const getChoice = (choice) => {
+        setChoice(choice);
+    }
+
+    console.log('start'.choice);
+
 	return (
 		<>
 			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
@@ -29,6 +41,10 @@ export default function Index() {
 				}}
 			/>
 			<Button />
+            <Tree options={[
+                'route a',
+                'route b'
+            ]} func={getChoice}/>
 		</>
 	);
 }
