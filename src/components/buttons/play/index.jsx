@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
+import { button } from "./index.module.css";
 
 export default function Index() {
-    return (
-        <div>
-            
-        </div>
-    )
+	return <div className={button}>pop</div>;
 }
