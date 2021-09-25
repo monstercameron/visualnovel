@@ -11,7 +11,7 @@ export default function Index({options, defaultOpt, func}) {
     }
     const buildOptions = (options) => {
         return options.map((option, index) => {
-            return <button onClick={makeChoice(option)} key={index} >{option}</button>
+            return <Button onClick={makeChoice(option)} key={index} >{option}</Button>
         })
     }
 

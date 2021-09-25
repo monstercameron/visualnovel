@@ -40,9 +40,15 @@ export default function Index() {
 			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
 				<img src={goku} alt="" srcset="" className="img-fluid" />
 			</div>
-			<Timer time={5} func={next} />
-			<Button />
-			<Tree options={["route a", "route b"]} defaultOpt={1} func={getChoice} />
+			<Timer
+				time={5}
+				func={next}
+			/>
+			<Button fn={next}/>
+            <Tree options={[
+                'route a',
+                'route b'
+            ]} defaultOpt={1} func={getChoice}/>
 		</>
 	);
 }
