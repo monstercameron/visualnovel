@@ -5,10 +5,12 @@ import goku from "../../assets/Goku.png";
 import Timer from "../../components/timer";
 import Button from "../../components/buttons/play";
 import Tree from "../../components/buttons/tree";
+import { useHistory } from "react-router-dom";
 
 export default function Index() {
-    const test = useContext(Context);
-    console.log(test);
+	let history = useHistory();
+	const test = useContext(Context);
+	console.log(test);
 	const [move, setMove] = useState("");
 	const clickToMove = (e) => {
 		//print(e)
@@ -20,15 +22,15 @@ export default function Index() {
 	};
 
 	const [choice, setChoice] = useState("");
-    const getChoice = (choice) => {
-        setChoice(choice);
-    }
+	const getChoice = (choice) => {
+		setChoice(choice);
+	};
 
-    const next = () => {
-        return -1
-    }
+	const next = () => {
+		history.push("/test");
+	};
 
-    console.log('start: choice-',choice);
+	console.log("start: choice-", choice);
 
 	return (
 		<>
@@ -38,15 +40,9 @@ export default function Index() {
 			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
 				<img src={goku} alt="" srcset="" className="img-fluid" />
 			</div>
-			<Timer
-				time={5}
-				func={next}
-			/>
+			<Timer time={5} func={next} />
 			<Button />
-            <Tree options={[
-                'route a',
-                'route b'
-            ]} defaultOpt={1} func={getChoice}/>
+			<Tree options={["route a", "route b"]} defaultOpt={1} func={getChoice} />
 		</>
 	);
 }

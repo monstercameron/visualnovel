@@ -1,14 +1,14 @@
-import { injectContext } from '../src/store/store';
-import Start from '../src/scene/start';
-import './main.css'
-import './animations.css'
+import { injectContext } from "../src/store/store";
+import "./main.css";
+import "./animations.css";
+import Router from "./router";
 
 function App() {
-  return (
-    <div className="app">
-      <Start/>
-    </div>
-  );
+	return (
+		<div className="app">
+			<Router />
+		</div>
+	);
 }
 
 export default injectContext(App);
