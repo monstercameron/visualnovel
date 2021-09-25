@@ -1,0 +1,25 @@
+.mc {
+  color: royalblue;
+  font-size: 5.5em;
+  width: 400px;
+  height: 500px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.ee {
+  color: royalblue;
+  font-size: 5.5em;
+  width: 400px;
+  height: 500px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.mc,
+ee > img {
+  text-align: center;
+  display: inline-block;
+  width: 400px;
+  height: 500px;
+}
