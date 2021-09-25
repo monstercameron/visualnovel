@@ -1,5 +1,12 @@
 .loader{
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.281);
     height: 25px;
     width: 720px;
+}
+
+.outerLoader{
+    width: 413px;
+    height: 24px;
+    margin: 0 auto;
+    background-color: saddlebrown;
 }

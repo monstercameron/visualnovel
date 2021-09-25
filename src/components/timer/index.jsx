@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import {loader} from './index.module.css'
+import {loader, outerLoader} from './index.module.css'
 
 export default function Index({time, func}) {
     const MAX_WIDTH = 720
@@ -28,8 +28,10 @@ export default function Index({time, func}) {
 
     console.log(`width:${width}, count:${count}`)
     return (
-        <div className={loader} style={{width:`${width}px`}}>
-            timer
+        <div className={outerLoader}>
+            <div className={loader} style={{width:`${width}px`}}>
+                timer
+            </div>
         </div>
     )
 }
