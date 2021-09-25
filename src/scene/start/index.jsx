@@ -24,7 +24,11 @@ export default function Index() {
         setChoice(choice);
     }
 
-    console.log('start'.choice);
+    const next = () => {
+        return -1
+    }
+
+    console.log('start: choice-',choice);
 
 	return (
 		<>
@@ -36,15 +40,13 @@ export default function Index() {
 			</div>
 			<Timer
 				time={5}
-				func={() => {
-					console.log("hello world");
-				}}
+				func={next}
 			/>
 			<Button />
             <Tree options={[
                 'route a',
                 'route b'
-            ]} func={getChoice}/>
+            ]} defaultOpt={1} func={getChoice}/>
 		</>
 	);
 }

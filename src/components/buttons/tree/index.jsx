@@ -1,17 +1,17 @@
 import React,{useState, useEffect} from 'react'
 import Button from '../play'
 
-export default function Index({options, func}) {
+export default function Index({options, defaultOpt, func}) {
 
-    const [choice, setChoice] = useState('')
+    const [choice, setChoice] = useState(options[defaultOpt || 0])
 
     const makeChoice = (choice) => () => {
-        console.log(choice);
+        console.log('choice made:',choice);
         setChoice(choice)
     }
     const buildOptions = (options) => {
         return options.map((option, index) => {
-            return <Button key={index} onClick={()=>console.log('test')}>{option}</Button>
+            return <button onClick={makeChoice(option)} key={index} >{option}</button>
         })
     }
 
@@ -22,8 +22,8 @@ export default function Index({options, func}) {
     },[choice])
 
     return (
-        <div>
+        <>
             {buildOptions(options)}
-        </div>
+        </>
     )
 }
