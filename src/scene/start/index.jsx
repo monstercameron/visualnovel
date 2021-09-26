@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {parent} from './index.module.css';
+import SpeechLib from "react-speech";
 
 //import components
 import Button from "../../components/buttons/play";
@@ -10,6 +11,7 @@ import bg from '../../assets/start.png'
 
 // import bgm
 import bgm from '../../assets/bgm.wav'
+import heroImg from "../../assets/Arouramain.png";
 
 export default function Index() {
     let audio = new Audio(bgm)
