@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bdb57239.chunk.css",
+    "main.js": "/static/js/main.143bad62.chunk.js",
+    "main.js.map": "/static/js/main.143bad62.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.64ca5aee.js",
+    "runtime-main.js.map": "/static/js/runtime-main.64ca5aee.js.map",
+    "static/js/2.9f337446.chunk.js": "/static/js/2.9f337446.chunk.js",
+    "static/js/2.9f337446.chunk.js.map": "/static/js/2.9f337446.chunk.js.map",
+    "static/js/3.1cc8e582.chunk.js": "/static/js/3.1cc8e582.chunk.js",
+    "static/js/3.1cc8e582.chunk.js.map": "/static/js/3.1cc8e582.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.bdb57239.chunk.css.map": "/static/css/main.bdb57239.chunk.css.map",
+    "static/js/2.9f337446.chunk.js.LICENSE.txt": "/static/js/2.9f337446.chunk.js.LICENSE.txt",
+    "static/media/Arouramain.bb81a54a.png": "/static/media/Arouramain.bb81a54a.png",
+    "static/media/End.d363beee.png": "/static/media/End.d363beee.png",
+    "static/media/Goku.b3b6c689.png": "/static/media/Goku.b3b6c689.png",
+    "static/media/Sky1.87232f1e.png": "/static/media/Sky1.87232f1e.png",
+    "static/media/index.module.css": "/static/media/Step1.a0412a4a.png",
+    "static/media/bgm.411fada7.wav": "/static/media/bgm.411fada7.wav",
+    "static/media/start.09ada121.png": "/static/media/start.09ada121.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64ca5aee.js",
+    "static/js/2.9f337446.chunk.js",
+    "static/css/main.bdb57239.chunk.css",
+    "static/js/main.143bad62.chunk.js"
+  ]
+}
