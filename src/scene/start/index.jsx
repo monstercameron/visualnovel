@@ -6,6 +6,7 @@ import Hero from "../../components/character";
 import Button from "../../components/buttons/play";
 import Tree from "../../components/buttons/tree";
 import Speech from "../../components/speech";
+import Pet from "../../components/pet";
 
 export default function Index() {
 	let history = useHistory();
@@ -57,6 +58,9 @@ export default function Index() {
                 'route a',
                 'route b'
             ]} defaultOpt={1} func={getChoice}/>
+
+			<Pet pos={['600px',`1175px`]}/>
+
 		</div>
 	);
 }

@@ -1,0 +1,12 @@
+.parent {
+    height: 75;
+    width: 75px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.parent > img {
+    height: 75;
+    width: 75px;
+    position: absolute;
+}
