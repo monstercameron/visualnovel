@@ -1,0 +1,21 @@
+.parent {
+position: absolute;
+height: 200px;
+width: 300px;
+}
+
+.parent > img {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    
+}
+
+.parent > span {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    height: 130px;
+    width: 275px;
+    overflow-y: scroll;
+}
