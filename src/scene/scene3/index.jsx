@@ -32,7 +32,7 @@ export default function Index() {
 	const test = useContext(Context);
 
     let decisionList = null
-	const [step, setStep] = useState(0);
+	const [step, setStep] = useState(3);
 
     const [choice, setChoice] = useState("");
 	const getChoice = (choice) => {
@@ -64,12 +64,12 @@ export default function Index() {
 	const dialog1 = () => {
 		return <>
 			<Timer
-				time={3}
+				time={5}
 				func={next}
 			/>
-			<Hero pos={['275px','30px']} img={heroImgAur} />
+			<Hero pos={['315px','10px']} img={heroImgAur} />
             
-			<Hero pos={['190px','980px']} img={heroImgSky} />
+			<Hero pos={['220px','940px']} img={heroImgSky} />
 			<Speech facing='right' pos={['150px','650px']} >
 				<SpeechLib  pitch="0.9"
 					rate="0.9"
@@ -87,12 +87,12 @@ Aurora: “That was actually a good question, insubordinate, but a good question
 	const dialog2 = () => {
 		return <>
 			<Timer
-				time={30}
+				time={5}
 				func={next}
 			/>
-			<Hero pos={['275px','30px']} img={heroImgAur} />
+			<Hero pos={['315px','10px']} img={heroImgAur} />
             
-			<Hero pos={['190px','980px']} img={heroImgSky} />
+			<Hero pos={['220px','940px']} img={heroImgSky} />
 			<Speech facing='right' pos={['150px','650px']} >
 				<SpeechLib  pitch="0.9"
 					rate="0.9"
@@ -105,10 +105,10 @@ Aurora: “That was actually a good question, insubordinate, but a good question
 	const dialog3 = () => {
 		return <>
 			<Timer
-				time={30}
+				time={5}
 				func={next}
 			/>
-			<Hero pos={['275px','30px']} img={heroImgAur} />
+			<Hero pos={['315px','10px']} img={heroImgAur} />
 			<Speech facing='right' pos={['150px','650px']} >
 				<SpeechLib  pitch="0.9"
 					rate="0.9"
@@ -116,7 +116,7 @@ Aurora: “That was actually a good question, insubordinate, but a good question
 					lang="en-GB"
 					voice="Microsoft Zira - English (United States)" text='To keep it simple, we can purchase items from a third-party supplier and have them shipped directly to the customer. It’s a fulfillment method called Dropshipping! So either we fulfill our own orders or we can start dropshipping, let’s choose!' />To keep it simple, we can purchase items from a third-party supplier and have them shipped directly to the customer. It’s a fulfillment method called Dropshipping! So either we fulfill our own orders or we can start dropshipping, let’s choose!</Speech>
             
-			<Hero pos={['190px','980px']} img={heroImgSky} />
+			<Hero pos={['220px','940px']} img={heroImgSky} />
 		</>
 	}
 
@@ -126,7 +126,7 @@ Aurora: “That was actually a good question, insubordinate, but a good question
             time={5}
             func={next}
         />
-        <Hero pos={['275px','30px']} img={heroImgAur} />
+        <Hero pos={['315px','10px']} img={heroImgAur} />
         <Speech facing='right' pos={['150px','650px']} >
             <SpeechLib  pitch="0.9"
                 rate="0.9"
@@ -134,7 +134,7 @@ Aurora: “That was actually a good question, insubordinate, but a good question
                 lang="en-GB"
                 voice="Microsoft Zira - English (United States)" text='To keep it simple, we can purchase items from a third-party supplier and have them shipped directly to the customer. It’s a fulfillment method called Dropshipping! So either we fulfill our own orders or we can start dropshipping, let’s choose!' />To keep it simple, we can purchase items from a third-party supplier and have them shipped directly to the customer. It’s a fulfillment method called Dropshipping! So either we fulfill our own orders or we can start dropshipping, let’s choose!</Speech>
         
-        <Hero pos={['190px','980px']} img={heroImgSky} />
+        <Hero pos={['220px','940px']} img={heroImgSky} />
         
     <Tree options={[
         'In-House Fulfillment',
@@ -149,9 +149,9 @@ Aurora: “That was actually a good question, insubordinate, but a good question
             time={6}
             func={next}
         />
-        <Hero pos={['275px','30px']} img={heroImgAur} />
+        <Hero pos={['315px','10px']} img={heroImgAur} />
         
-        <Hero pos={['190px','980px']} img={heroImgSky} />
+        <Hero pos={['220px','940px']} img={heroImgSky} />
         
         <Speech facing='right' pos={['150px','650px']} >
             <SpeechLib  pitch="0.9"
@@ -169,9 +169,9 @@ Aurora: “That was actually a good question, insubordinate, but a good question
             time={6}
             func={next}
         />
-        <Hero pos={['275px','30px']} img={heroImgAur} />
+        <Hero pos={['315px','10px']} img={heroImgAur} />
         
-        <Hero pos={['190px','980px']} img={heroImgSky} />
+        <Hero pos={['220px','940px']} img={heroImgSky} />
         
         <Speech facing='left' pos={['280px','240px']} >
             <SpeechLib  pitch="0.9"
@@ -189,9 +189,9 @@ Aurora: “That was actually a good question, insubordinate, but a good question
             time={6}
             func={next}
         />
-        <Hero pos={['275px','30px']} img={heroImgAur} />
+        <Hero pos={['315px','10px']} img={heroImgAur} />
         
-        <Hero pos={['190px','980px']} img={heroImgSky} />
+        <Hero pos={['220px','940px']} img={heroImgSky} />
         
         <Speech facing='right' pos={['150px','650px']} >
             <SpeechLib  pitch="0.9"
@@ -209,9 +209,9 @@ Aurora: “That was actually a good question, insubordinate, but a good question
             time={6}
             func={next}
         />
-        <Hero pos={['275px','30px']} img={heroImgAur} />
+        <Hero pos={['315px','10px']} img={heroImgAur} />
         
-        <Hero pos={['190px','980px']} img={heroImgSky} />
+        <Hero pos={['220px','940px']} img={heroImgSky} />
         
         <Speech facing='narrator' pos={['150px','650px']} >
             <SpeechLib  pitch="0.9"
@@ -236,7 +236,13 @@ Aurora: “That was actually a good question, insubordinate, but a good question
 
     useEffect(() => {
         audio.muted = false
-        playing ? audio.play() : audio.pause();
+        if(playing){
+            if ((audio.currentTime > 0 && !audio.ended) || audio.paused) {
+                // audio.play();
+            } else {
+                audio.pause();
+            }
+        }
       },
       [playing]
     )
@@ -248,12 +254,13 @@ Aurora: “That was actually a good question, insubordinate, but a good question
         };
       }, []);
 
-    return <div className={parent} 
-    style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
-
+    return <div className={parent}>
+        <div>
+            <img src={bg} alt="" className='rounded' />
+        </div>
     {decisionList[step]()}
-
-    <Pet pos={['600px',`1175px`]}/>
-
+    <Pet pos={['580px',`1135px`]}/>
 </div>
 }
+
+//style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}

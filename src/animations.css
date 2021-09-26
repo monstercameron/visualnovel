@@ -59,3 +59,42 @@
       transform: rotate(-1deg);
     }
   }
+
+  
+.spawn {
+  animation-duration: 1s;
+  animation-name: spawnanimation;
+  /* transform-origin: 200px 400px; */
+}
+
+@keyframes spawnanimation {
+  0% {
+    transform: translatey(-50px);
+  }
+  20% {
+    transform: translatey(-5px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+  
+.btnIdle {
+  animation-duration: 7s;
+  animation-name: btnIdleanimation;
+  animation-iteration-count: infinite;
+  /* transform-origin: 200px 400px; */
+}
+
+@keyframes btnIdleanimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
