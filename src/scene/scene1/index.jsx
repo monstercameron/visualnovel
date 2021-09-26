@@ -8,6 +8,10 @@ import Tree from "../../components/buttons/tree";
 import Speech from "../../components/speech";
 import Pet from "../../components/pet";
 
+
+import heroImg from '../../assets/Arouramain.png'
+import bg from '../../assets/Step1.png'
+
 export default function Index() {
 	let history = useHistory();
 	const test = useContext(Context);
@@ -34,7 +38,7 @@ export default function Index() {
 	console.log("start: choice-", choice);
 
 	return (
-		<div>
+		<div style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
 			<Timer
 				time={5}
 				func={next}

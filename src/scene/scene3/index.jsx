@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../../store/store";
 import { useHistory } from "react-router-dom";
 import SpeechLib from 'react-speech';
-import {parent} from './index.module.css';
+import {parent} from './index.module.css'
 
 //import components
 import Timer from "../../components/timer";
@@ -20,10 +20,10 @@ export default function Index() {
 	let history = useHistory();
 	const test = useContext(Context);
 
-	let decisionList = null
+    let decisionList = null
 	const [step, setStep] = useState(0);
 
-	const [choice, setChoice] = useState("");
+    const [choice, setChoice] = useState("");
 	const getChoice = (choice) => {
 		setChoice(choice);
 	};
@@ -35,6 +35,7 @@ export default function Index() {
 			setStep(step + 1);
 		}
 	};
+    
 
 	const decision1 = () => {
 		return <>
@@ -54,54 +55,33 @@ export default function Index() {
 			</Speech>
 		</>
 	}
-	
-	const decision2 = () => {
-		return <>
-				<Timer
-					time={5}
-					func={next}
-				/>
-				<Hero pos={['275px','30px']} img={heroImg} />
-			<Speech facing='left' pos={['300px','300px']} >
-				<SpeechLib  pitch="0.9"
-					rate="0.9"
-					volume="0.7"
-					lang="en-GB"
-					voice='With the amount of foot travel the Witchatopia Center gets, a physical presence of Chakra Zulu should increase the chances of success.'/>
-					With the amount of foot travel the Witchatopia Center gets, a physical presence of Chakra Zulu should increase the chances of success.
-			</Speech>
-			</>
-	}
 
+    
 	decisionList = [
 		//prompt1, // narrator promt
 		decision1,
-		decision2,
+		//decision2,
 	]
 
-	console.log("step: ", step);
+    return <div className={parent} 
+    style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
 
-	return (
-		<div className={parent} 
-			style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
+    {decisionList[step]()}
 
-			{decisionList[step]()}
+    {/* <Hero pos={['100px','50px']} move={move} clickToMove={clickToMove} />
+    <Speech pos={['75px','350px']} >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit aspernatur sit provident consequatur tempore, molestiae dolor quia hic numquam iste iure eligendi. Tenetur cumque veniam porro, atque exercitationem distinctio.
+    </Speech> */}
 
-			{/* <Hero pos={['100px','50px']} move={move} clickToMove={clickToMove} />
-			<Speech pos={['75px','350px']} >
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit aspernatur sit provident consequatur tempore, molestiae dolor quia hic numquam iste iure eligendi. Tenetur cumque veniam porro, atque exercitationem distinctio.
-			</Speech> */}
-		
 
-			{/* <Button pos={['500px',`${1280/2-215/2}px`]} fn={next}/> */}
+    {/* <Button pos={['500px',`${1280/2-215/2}px`]} fn={next}/> */}
 
-            {/* <Tree options={[
-                'route a',
-                'route b'
-            ]} defaultOpt={1} func={getChoice}/> */}
+    {/* <Tree options={[
+        'route a',
+        'route b'
+    ]} defaultOpt={1} func={getChoice}/> */}
 
-			<Pet pos={['600px',`1175px`]}/>
+    <Pet pos={['600px',`1175px`]}/>
 
-		</div>
-	);
+</div>
 }
