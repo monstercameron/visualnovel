@@ -11,12 +11,12 @@
 }
 .parent > span{
     position: absolute;
-    top:25px;
+    top:10px;
     left:25px;
     width: 180px;
     text-align: center;
     text-transform: capitalize;
     color: rgb(255, 255, 255);
-    font-size: 1.5em;
+    font-size: 1.25em;
     font-weight: bold;
 }
