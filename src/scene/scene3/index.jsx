@@ -18,15 +18,15 @@ import heroImgSky from '../../assets/Sky1.png'
 import bg from '../../assets/Step1.png'
 
 // import bgm
-import bgm from '../../assets/bgm.wav'
+// import bgm from '../../assets/bgm.wav'
 
 export default function Index() {
-    let audio = new Audio(bgm)
-    audio.volume = 0.05
-    audio.autoplay = true
-    audio.muted = true
-    audio.loop = true
-    const [playing, setPlaying] = useState(true);
+    // let audio = new Audio(bgm)
+    // audio.volume = 0.05
+    // audio.autoplay = true
+    // audio.muted = true
+    // audio.loop = true
+    // const [playing, setPlaying] = useState(true);
 
 	let history = useHistory();
 	const test = useContext(Context);
@@ -234,25 +234,25 @@ Aurora: “That was actually a good question, insubordinate, but a good question
         stepAdialog4
 	]
 
-    useEffect(() => {
-        audio.muted = false
-        if(playing){
-            if ((audio.currentTime > 0 && !audio.ended) || audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
-      },
-      [playing]
-    )
+    // useEffect(() => {
+    //     audio.muted = false
+    //     if(playing){
+    //         if ((audio.currentTime > 0 && !audio.ended) || audio.paused) {
+    //             audio.play();
+    //         } else {
+    //             audio.pause();
+    //         }
+    //     }
+    //   },
+    //   [playing]
+    // )
 
-    useEffect(() => {
-        audio.addEventListener('ended', () => setPlaying(false));
-        return () => {
-          audio.removeEventListener('ended', () => setPlaying(false));
-        };
-      }, []);
+    // useEffect(() => {
+    //     audio.addEventListener('ended', () => setPlaying(false));
+    //     return () => {
+    //       audio.removeEventListener('ended', () => setPlaying(false));
+    //     };
+    //   }, []);
 
     return <div className={parent}>
         <div>

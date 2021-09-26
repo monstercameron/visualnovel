@@ -1,70 +1,144 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../store/store";
 import { useHistory } from "react-router-dom";
+import SpeechLib from 'react-speech';
 import Timer from "../../components/timer";
 import Hero from "../../components/character";
-import Button from "../../components/buttons/play";
 import Tree from "../../components/buttons/tree";
 import Speech from "../../components/speech";
 import Pet from "../../components/pet";
 
 
-import heroImg from '../../assets/Arouramain.png'
+import heroImgAur from '../../assets/Arouramain.png'
 import bg from '../../assets/Step1.png'
 
 export default function Index() {
 	let history = useHistory();
-	const test = useContext(Context);
-	console.log(test);
-	const [move, setMove] = useState("");
-	const clickToMove = (e) => {
-		if (e.target.classList.contains("move")) {
-			setMove("");
-		} else {
-			setMove("move");
-		}
-	};
 
-	const [choice, setChoice] = useState("");
+    let decisionList = null
+	const [step, setStep] = useState(0); 
+
+	const [choice, setChoice] = useState("Online");
 	const getChoice = (choice) => {
 		setChoice(choice);
 	};
 
 	const next = () => {
-        console.log('NEXT!')
-		history.push("/test");
+		// history.push("/scene2");
+        if(step === 1){
+            switch(choice){
+                case "Brick and Mortar":
+					console.log("Brick and Mortar");
+                    setStep(2);
+                    break;
+                case "Online":
+					console.log("Online");
+                    setStep(3);
+                    break;
+                default:
+					console.log("def");
+                    setStep(step + 1);
+                    break;
+                }
+        }else if (step < decisionList.length -1) {
+			setStep(step + 1);
+		}else{
+		 history.push("/scene2");
+        }
 	};
 
-	console.log("start: choice-", choice);
+	const dialog1 = () => {
+		return <>
+        <Timer
+            time={5}
+            func={next}
+        />
+		<Hero pos={['315px','10px']} img={heroImgAur} />
+		<Speech facing='left' pos={['280px','240px']} >
+            <SpeechLib  pitch="0.9"
+                rate="0.9"
+                volume="0.7"
+                lang="en-GB"
+                voice="Microsoft Zira - English (United States)" text='Halloween is coming and I just might have the perfect idea to get the spooky season rolling. A Halloween pop-up store! Now, to decide, brick and mortar or online?' />Halloween is coming and I just might have the perfect idea to get the spooky season rolling. A Halloween pop-up store! Now, to decide, brick and mortar or online?
+                </Speech>
+            </>
+		
+	}
+
+	const decision1 = () => {
+		return <>
+        <Timer
+            time={5}
+            func={next}
+        />
+			<Hero pos={['315px','10px']} img={heroImgAur} />
+			<Speech facing='left' pos={['280px','240px']} >
+				<SpeechLib  pitch="0.9"
+					rate="0.9"
+					volume="0.7"
+					lang="en-GB"
+					voice="Microsoft Zira - English (United States)" text='Halloween is coming and I just might have the perfect idea to get the spooky season rolling. A Halloween pop-up store! Now, to decide, brick and mortar or online?' />Halloween is coming and I just might have the perfect idea to get the spooky season rolling. A Halloween pop-up store! Now, to decide, brick and mortar or online?
+					</Speech>        
+				<Tree options={[
+					'Brick and Mortar',
+					'Online'
+				]} defaultOpt={1} func={getChoice}/>
+			</>
+	}
+
+	const dialog2a = () => {
+
+		return <>
+        <Timer
+            time={5}
+            func={next}
+        />
+			<Hero pos={['315px','10px']} img={heroImgAur} />
+			<Speech facing='left' pos={['280px','240px']} >
+				<SpeechLib  pitch="0.9"
+					rate="0.9"
+					volume="0.7"
+					lang="en-GB"
+					voice="Microsoft Zira - English (United States)" text='“With the amount of foot travel the Witchatopia Center gets, a physical presence of Chakra Zulu should increase the chances of success.' />“With the amount of foot travel the Witchatopia Center gets, a physical presence of Chakra Zulu should increase the chances of success.
+					</Speech>
+			</>
+	}
+
+	const dialog2b = () => {
+
+		return <>
+        <Timer
+            time={5}
+            func={next}
+        />
+			<Hero pos={['315px','10px']} img={heroImgAur} />
+			<Speech facing='left' pos={['280px','240px']} >
+				<SpeechLib  pitch="0.9"
+					rate="0.9"
+					volume="0.7"
+					lang="en-GB"
+					voice="Microsoft Zira - English (United States)" text='We’re in the age of technology so that’s a no-brainer, online!' />We’re in the age of technology so that’s a no-brainer, online!”
+					If option 1 is chosen: things to consider
+					
+					</Speech>
+			</>
+	}
+
+
+	decisionList = [
+		dialog1,
+		decision1,
+		dialog2a,
+		dialog2b,
+	]
 
 	return (
-		<div style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
-			<Timer
-				time={5}
-				func={next}
-			/>
-
-			<Hero pos={['100px','900px']} move={move} clickToMove={clickToMove} />
-			<Speech facing='right' pos={['100px','700px']} >
-				test speech
-			</Speech>
-
-
-			<Hero pos={['100px','50px']} move={move} clickToMove={clickToMove} />
-			<Speech pos={['75px','350px']} >
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit aspernatur sit provident consequatur tempore, molestiae dolor quia hic numquam iste iure eligendi. Tenetur cumque veniam porro, atque exercitationem distinctio.
-			</Speech>
-		
-
-			{/* <Button pos={['500px',`${1280/2-215/2}px`]} fn={next}/> */}
-
-            <Tree options={[
-                'route a',
-                'route b'
-            ]} defaultOpt={1} func={getChoice}/>
-
-			<Pet pos={['600px',`1175px`]}/>
-
+		<div>
+			<div>
+				<img src={bg} alt="" srcset="" />
+			</div>
+    		{decisionList[step]()}
+			<Pet pos={['580px',`1135px`]}/>
 		</div>
 	);
 }
