@@ -6,20 +6,21 @@ import blank2 from "../../../assets/blank2.png";
 export default function Index({ pos, fn , children}) {
 
     const imageClicked = ({target}) => {
+        fn()
         if( target.src = blank){
             target.src = blank2
         }else if ( target.src = blank2){
             target.src = blank
         }
     }
-
+    
 	return <div className={parent} onClick={fn} style={{top:pos[0], left:pos[1]}}>
 
         <img src={blank} alt="" srcset="" 
         onClick={imageClicked} onMouseUp={imageClicked}
         />
-
-        <span>{children || 'test'}</span>
+        <span 
+        onClick={imageClicked}>{children || 'test'}</span>
 
         </div>;
 }

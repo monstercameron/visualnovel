@@ -11,7 +11,7 @@ export default function Index({options, defaultOpt, func}) {
     }
     const buildOptions = (options) => {
         return options.map((option, index) => {
-            return <Button  pos={[`${400 + 100*index}px`,`${1280/2-215/2}px`]} onClick={makeChoice(option)} key={index} >{option}</Button>
+            return <Button  pos={[`${400 + 100*index}px`,`${1280/2-215/2}px`]} fn={makeChoice(option)} key={index} >{option}</Button>
         })
     }
 
