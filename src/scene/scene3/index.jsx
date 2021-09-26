@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/store";
 import { useHistory } from "react-router-dom";
 import SpeechLib from 'react-speech';
@@ -17,7 +17,17 @@ import heroImgAur from '../../assets/Arouramain.png'
 import heroImgSky from '../../assets/Sky1.png'
 import bg from '../../assets/Step1.png'
 
+// import bgm
+import bgm from '../../assets/bgm.wav'
+
 export default function Index() {
+    let audio = new Audio(bgm)
+    audio.volume = 0.05
+    audio.autoplay = true
+    audio.muted = true
+    audio.loop = true
+    const [playing, setPlaying] = useState(true);
+
 	let history = useHistory();
 	const test = useContext(Context);
 
@@ -224,12 +234,25 @@ Aurora: “That was actually a good question, insubordinate, but a good question
         stepAdialog4
 	]
 
-    console.log(choice);
+    useEffect(() => {
+        audio.muted = false
+        playing ? audio.play() : audio.pause();
+      },
+      [playing]
+    )
+
+    useEffect(() => {
+        audio.addEventListener('ended', () => setPlaying(false));
+        return () => {
+          audio.removeEventListener('ended', () => setPlaying(false));
+        };
+      }, []);
+
     return <div className={parent} 
     style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
 
     {decisionList[step]()}
-    
+
     <Pet pos={['600px',`1175px`]}/>
 
 </div>
