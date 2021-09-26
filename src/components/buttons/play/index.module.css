@@ -1,8 +1,4 @@
 .button {
-	display: inline-block;
 	cursor: pointer;
-}
-
-.button:hover {
-	color: red;
+	position: relative;
 }

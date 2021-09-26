@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import Button from '../play'
+import Button from '../blank'
 
 export default function Index({options, defaultOpt, func}) {
 
@@ -9,9 +9,14 @@ export default function Index({options, defaultOpt, func}) {
         console.log('choice made:',choice);
         setChoice(choice)
     }
+
+    const visualSelectiion = () => {
+console.log('test');
+    }
+
     const buildOptions = (options) => {
         return options.map((option, index) => {
-            return <Button onClick={makeChoice(option)} key={index} >{option}</Button>
+            return <Button pos={[`${400 + 100*index}px`,`${1280/2-215/2}px`]} fn={makeChoice(option)} key={index} >{option}</Button>
         })
     }
 

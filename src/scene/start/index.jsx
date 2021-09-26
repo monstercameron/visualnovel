@@ -1,55 +1,57 @@
-import React, { useState, useContext } from "react";
-import { Context } from "../../store/store";
-import { mc } from "./index.module.css";
-import goku from "../../assets/Goku.png";
-import Timer from "../../components/timer";
-import Button from "../../components/buttons/play";
-import Tree from "../../components/buttons/tree";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import {parent} from './index.module.css';
+
+//import components
+import Button from "../../components/buttons/play";
+
+// import imgs
+import bg from '../../assets/start.png'
+
+// import bgm
+import bgm from '../../assets/bgm.wav'
 
 export default function Index() {
-	let history = useHistory();
-	const test = useContext(Context);
-	console.log(test);
-	const [move, setMove] = useState("");
-	const clickToMove = (e) => {
-		//print(e)
-		if (e.target.classList.contains("move")) {
-			setMove("");
-		} else {
-			setMove("move");
-		}
-	};
+    let audio = new Audio(bgm)
+    audio.volume = 0.05
+    audio.autoplay = true
+    audio.muted = true
+    audio.loop = true
+    const [playing, setPlaying] = useState(true);
 
-	const [choice, setChoice] = useState("");
-	const getChoice = (choice) => {
-		setChoice(choice);
-	};
+	let history = useHistory();
 
 	const next = () => {
-        console.log('NEXT!')
-		history.push("/test");
+		audio.play();
+		history.push("/scene1");
 	};
 
-	console.log("start: choice-", choice);
+	useEffect(() => {
+        audio.muted = false
+        if(playing){
+            if ((audio.currentTime > 0 && !audio.ended) || audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+      },
+      [playing]
+    )
+
+    useEffect(() => {
+        audio.addEventListener('ended', () => setPlaying(false));
+        return () => {
+          audio.removeEventListener('ended', () => setPlaying(false));
+        };
+      }, []);
 
 	return (
-		<>
-			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
-				<img src={goku} alt="" srcset="" className="img-fluid" />
+		<div className={parent} >
+			<div>
+				<img src={bg} alt="" srcset="" />
 			</div>
-			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
-				<img src={goku} alt="" srcset="" className="img-fluid" />
-			</div>
-			<Timer
-				time={5}
-				func={next}
-			/>
-			<Button fn={next}/>
-            <Tree options={[
-                'route a',
-                'route b'
-            ]} defaultOpt={1} func={getChoice}/>
-		</>
+			<Button pos={['-180px',`1000px`]} fn={next}/>
+		</div>
 	);
 }
