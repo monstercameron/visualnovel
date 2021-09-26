@@ -18,7 +18,7 @@ export default function Index({time, func, reset=true}) {
         }
     }
     useEffect(() => {
-        console.log('useEffect', countInterval)
+        // console.log('useEffect', countInterval)
         counter()
        if (count < 0) {
         clearTimeout(countInterval)
@@ -28,7 +28,7 @@ export default function Index({time, func, reset=true}) {
     },[count])
 
 
-    console.log(`width:${width}, count:${count}`)
+    // console.log(`width:${width}, count:${count}`)
     return (
         <>
             <div className={outerLoader}>

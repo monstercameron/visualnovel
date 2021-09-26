@@ -29,7 +29,7 @@ export default function Index() {
 	const next = () => {
         // console.log('NEXT!')
 		// history.push("/test");
-		if (step < decisionList.length) {
+		if (step < decisionList.length -1) {
 			setStep(step + 1);
 		}
 	};
