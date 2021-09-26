@@ -37,8 +37,8 @@ export default function Index() {
 	const decision1 = () => {
 		return (
 			<>
-				<Timer time={3} func={next} />
-				<Hero pos={["275px", "30px"]} img={heroImgAro} />
+				<Timer time={5} func={next} />
+				<Hero pos={["315px", "10px"]} img={heroImgAro} />
 				<Speech facing="left" pos={["300px", "300px"]}>
 					<SpeechLib
 						pitch="0.9"
@@ -59,9 +59,7 @@ export default function Index() {
 		return (
 			<>
 				<Timer time={5} func={next} />
-				<Hero pos={["275px", "30px"]} img={heroImgAro} />
-
-				<Hero pos={["190px", "980px"]} img={heroImgSky} />
+				<Hero pos={["315px", "10px"]} img={heroImgAro} />
 				<Speech facing="right" pos={["150px", "650px"]}>
 					<SpeechLib
 						pitch="0.9"
@@ -72,6 +70,7 @@ export default function Index() {
 						text="That’s one option, but have you heard of Shopify? It’s a commerce platform that offers ways to either quickly launch a dream business solely on Shopify or utilizes its APIs to grant us creative freedom. 
                     "
 					/>
+					<Hero pos={["220px", "940px"]} img={heroImgSky} />
 					That’s one option, but have you heard of Shopify? It’s a commerce
 					platform that offers ways to either quickly launch a dream business
 					solely on Shopify or utilizes its APIs to grant us creative freedom.
