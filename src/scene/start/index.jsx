@@ -18,6 +18,9 @@ export default function Index() {
 	let history = useHistory();
 	const test = useContext(Context);
 
+	let decisionList = null
+	const [step, setStep] = useState(0);
+
 	const [choice, setChoice] = useState("");
 	const getChoice = (choice) => {
 		setChoice(choice);
@@ -26,13 +29,18 @@ export default function Index() {
 	const next = () => {
         // console.log('NEXT!')
 		// history.push("/test");
+		if (step < decisionList.length) {
+			setStep(step + 1);
+		}
 	};
 
 	const decision1 = () => {
-
 		return <>
+			<Timer
+				time={5}
+				func={next}
+			/>
 			<Hero pos={['275px','30px']} img={heroImg} />
-
 			<Speech facing='left' pos={['300px','300px']} >
 				<SpeechLib  pitch="0.9"
 					rate="0.9"
@@ -44,25 +52,35 @@ export default function Index() {
 			</Speech>
 		</>
 	}
+	const decision2 = () => {
+		return <>
+				<Timer
+					time={5}
+					func={next}
+				/>
+				<Hero pos={['275px','30px']} img={heroImg} />
+			<Speech facing='left' pos={['300px','300px']} >
+				<SpeechLib  pitch="0.9"
+					rate="0.9"
+					volume="0.7"
+					lang="en-GB"
+					voice='With the amount of foot travel the Witchatopia Center gets, a physical presence of Chakra Zulu should increase the chances of success.'/>
+					With the amount of foot travel the Witchatopia Center gets, a physical presence of Chakra Zulu should increase the chances of success.
+			</Speech>
+			</>
+	}
 
-	
-	const decisionList = [
+	decisionList = [
+		//prompt1, // narrator promt
 		decision1,
 		decision2,
 	]
 
-	// console.log("start: choice-", choice);
+	console.log("step: ", step);
 
 	return (
 		<div>
-			{/* <Timer
-				time={5}
-				func={next}
-			/> */}
-
-			{decision1()}
-			
-
+			{decisionList[step]()}
 
 			{/* <Hero pos={['100px','50px']} move={move} clickToMove={clickToMove} />
 			<Speech pos={['75px','350px']} >
