@@ -22,7 +22,7 @@ export default function Index() {
 	const test = useContext(Context);
 
     let decisionList = null
-	const [step, setStep] = useState(3);
+	const [step, setStep] = useState(0);
 
     const [choice, setChoice] = useState("");
 	const getChoice = (choice) => {
@@ -47,10 +47,9 @@ export default function Index() {
         }else if (step < decisionList.length -1) {
 			setStep(step + 1);
 		}else{
-		// history.push("/scene5");
+		 history.push("/scene4");
         }
 	};
-    
 
 	const dialog1 = () => {
 		return <>
@@ -133,18 +132,18 @@ Aurora: “That was actually a good question, insubordinate, but a good question
     ]} defaultOpt={1} func={getChoice}/>
         </>
     }
-
     
     const stepAdialog1 = () => {
         return <>
         <Timer
-            time={5}
+            time={6}
             func={next}
         />
         <Hero pos={['275px','30px']} img={heroImgAur} />
-        <Speech facing='right' pos={['150px','650px']} >
         
         <Hero pos={['190px','980px']} img={heroImgSky} />
+        
+        <Speech facing='right' pos={['150px','650px']} >
             <SpeechLib  pitch="0.9"
                 rate="0.9"
                 volume="0.7"
@@ -153,17 +152,76 @@ Aurora: “That was actually a good question, insubordinate, but a good question
                 </Speech>
         </>
     }
+    
+    const stepAdialog2 = () => {
+        return <>
+        <Timer
+            time={6}
+            func={next}
+        />
+        <Hero pos={['275px','30px']} img={heroImgAur} />
+        
+        <Hero pos={['190px','980px']} img={heroImgSky} />
+        
+        <Speech facing='left' pos={['280px','240px']} >
+            <SpeechLib  pitch="0.9"
+                rate="0.9"
+                volume="0.7"
+                lang="en-GB"
+                voice="Microsoft Zira - English (United States)" text='And by “do it yourself,” I assume you are referring to ME? Since clearly, you’re not up for the task.' />And by “do it yourself,” I assume you are referring to ME? Since clearly, you’re not up for the task.
+                </Speech>
+        </>
+    }
+    
+    const stepAdialog3 = () => {
+        return <>
+        <Timer
+            time={6}
+            func={next}
+        />
+        <Hero pos={['275px','30px']} img={heroImgAur} />
+        
+        <Hero pos={['190px','980px']} img={heroImgSky} />
+        
+        <Speech facing='right' pos={['150px','650px']} >
+            <SpeechLib  pitch="0.9"
+                rate="0.9"
+                volume="0.7"
+                lang="en-GB"
+                voice="Microsoft Zira - English (United States)" text='I never said that you witch! But since my work is not up to your standards, YOU can do it by yourself… I quit!' />I never said that you witch! But since my work is not up to your standards, YOU can do it by yourself… I quit!
+                </Speech>
+        </>
+    }
+
+    const stepAdialog4 = () => {
+        return <>
+        <Timer
+            time={6}
+            func={next}
+        />
+        <Hero pos={['275px','30px']} img={heroImgAur} />
+        
+        <Hero pos={['190px','980px']} img={heroImgSky} />
+        
+        <Speech facing='narrator' pos={['150px','650px']} >
+            <SpeechLib  pitch="0.9"
+                rate="0.9"
+                volume="0.7"
+                lang="en-GB"
+                voice="Microsoft Zira - English (United States)" text='Sky immediately throws the box she was handling down and storms out of Aurora’s garage so fast, Aurora didn’t have a chance to protest her resignation. All alone, Aurora continues to work on her Halloween pop-up store but with too many tasks and not enough time/help, Aurora’s plan falls apart, causing her metaphysical boutique, Chakra Zulu to be permanently shut down.' />Sky immediately throws the box she was handling down and storms out of Aurora’s garage so fast, Aurora didn’t have a chance to protest her resignation. All alone, Aurora continues to work on her Halloween pop-up store but with too many tasks and not enough time/help, Aurora’s plan falls apart, causing her metaphysical boutique, Chakra Zulu to be permanently shut down.
+                </Speech>
+        </>
+    }
 
 	decisionList = [
-		//prompt1, // narrator promt
 		dialog1,
 		dialog2,
 		dialog3,
 		decision1,
 		stepAdialog1,
-		// stepAdialog2,
-        // stepAdialog3,
-        // stepAdialog4
+		stepAdialog2,
+        stepAdialog3,
+        stepAdialog4
 	]
 
     console.log(choice);
@@ -171,14 +229,7 @@ Aurora: “That was actually a good question, insubordinate, but a good question
     style={{backgroundImage:`url(${bg})`, backgroundRepeat:'cover'}}>
 
     {decisionList[step]()}
-
-    {/* <Button pos={['500px',`${1280/2-215/2}px`]} fn={next}/> */}
-
-    {/* <Tree options={[
-        'route a',
-        'route b'
-    ]} defaultOpt={1} func={getChoice}/> */}
-
+    
     <Pet pos={['600px',`1175px`]}/>
 
 </div>
