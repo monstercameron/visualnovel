@@ -1,28 +1,33 @@
-import React,{useRef, useEffect} from 'react'
+import React,{useRef, useEffect, useState} from 'react'
 import {parent} from './index.module.css'
 import blank from "../../../assets/blank.png";
 import blank2 from "../../../assets/blank2.png";
 
-export default function Index({ pos, selected=false, fn , children}) {
+export default function Index({ pos, fn , children}) {
     const ref = useRef(null);
+    const [img, setImg] = useState(blank);
 
-    const imageClicked = ({target}) => fn()
-    
-    useEffect(() => {
-        if(selected){
-            ref.current.src = blank2
-        }else{
-            ref.current.src = blank
+    const imageClicked = ({target}) => {
+        fn()
+        if(ref.current) {
+            ref.current.parentNode.classList.remove('btnIdle')
+            ref.current.parentNode.classList.add('btnSelect')
+            setImg(blank2)
+
+            const timer = setTimeout(() => {
+                ref.current.parentNode.classList.remove('btnSelect')
+                ref.current.parentNode.classList.add('btnIdle')
+            } , 500)
         }
-    } , [selected])
+    }
 
 	return <div 
             className={`${parent} spawn btnIdle`} 
-            onClick={fn} 
+            onClick={imageClicked} 
             style={{top:pos[0], left:pos[1]}}
             
             >
-        <img ref={ref} src={blank} alt="" srcset="" />
+        <img ref={ref} src={img} alt="" srcset="" />
         <span >{children || 'test'}</span>
 
         </div>;

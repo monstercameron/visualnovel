@@ -7,7 +7,7 @@ import {parent} from './index.module.css'
 //import components
 import Timer from "../../components/timer";
 import Hero from "../../components/character";
-import Button from "../../components/buttons/play";
+// import Button from "../../components/buttons/play";
 import Tree from "../../components/buttons/tree";
 import Speech from "../../components/speech";
 import Pet from "../../components/pet";
@@ -32,7 +32,7 @@ export default function Index() {
 	const test = useContext(Context);
 
     let decisionList = null
-	const [step, setStep] = useState(3);
+	const [step, setStep] = useState(0); 
 
     const [choice, setChoice] = useState("");
 	const getChoice = (choice) => {
@@ -48,7 +48,7 @@ export default function Index() {
                     setStep(step + 1);
                     break;
                 case "Dropshipping":
-                    //history.push("/scene4");
+                    history.push("/scene4");
                     break;
                 default:
                     setStep(step + 1);
@@ -57,7 +57,7 @@ export default function Index() {
         }else if (step < decisionList.length -1) {
 			setStep(step + 1);
 		}else{
-		 history.push("/scene4");
+		//  history.push("/scene4");
         }
 	};
 
@@ -213,7 +213,7 @@ Aurora: “That was actually a good question, insubordinate, but a good question
         
         <Hero pos={['220px','940px']} img={heroImgSky} />
         
-        <Speech facing='narrator' pos={['150px','650px']} >
+        <Speech facing='right' pos={['450px','900px']} >
             <SpeechLib  pitch="0.9"
                 rate="0.9"
                 volume="0.7"
@@ -238,7 +238,7 @@ Aurora: “That was actually a good question, insubordinate, but a good question
         audio.muted = false
         if(playing){
             if ((audio.currentTime > 0 && !audio.ended) || audio.paused) {
-                // audio.play();
+                audio.play();
             } else {
                 audio.pause();
             }
