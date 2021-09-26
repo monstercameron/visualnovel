@@ -1,0 +1,9 @@
+.mc {
+    color: royalblue;
+    font-size: 5.5em;
+    width: 400px;
+    height: 500px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+  }

@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../store/store";
-import { mc } from "./index.module.css";
-import goku from "../../assets/Goku.png";
+import { useHistory } from "react-router-dom";
 import Timer from "../../components/timer";
+import Hero from "../../components/character";
 import Button from "../../components/buttons/play";
 import Tree from "../../components/buttons/tree";
-import { useHistory } from "react-router-dom";
+import Speech from "../../components/speech";
+import Pet from "../../components/pet";
 
 export default function Index() {
 	let history = useHistory();
@@ -13,7 +14,6 @@ export default function Index() {
 	console.log(test);
 	const [move, setMove] = useState("");
 	const clickToMove = (e) => {
-		//print(e)
 		if (e.target.classList.contains("move")) {
 			setMove("");
 		} else {
@@ -34,22 +34,33 @@ export default function Index() {
 	console.log("start: choice-", choice);
 
 	return (
-		<>
-			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
-				<img src={goku} alt="" srcset="" className="img-fluid" />
-			</div>
-			<div className={`${mc} ${move} idle`} onClick={clickToMove}>
-				<img src={goku} alt="" srcset="" className="img-fluid" />
-			</div>
+		<div>
 			<Timer
 				time={5}
 				func={next}
 			/>
-			<Button fn={next}/>
+
+			<Hero pos={['100px','900px']} move={move} clickToMove={clickToMove} />
+			<Speech facing='right' pos={['100px','700px']} >
+				test speech
+			</Speech>
+
+
+			<Hero pos={['100px','50px']} move={move} clickToMove={clickToMove} />
+			<Speech pos={['75px','350px']} >
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit aspernatur sit provident consequatur tempore, molestiae dolor quia hic numquam iste iure eligendi. Tenetur cumque veniam porro, atque exercitationem distinctio.
+			</Speech>
+		
+
+			{/* <Button pos={['500px',`${1280/2-215/2}px`]} fn={next}/> */}
+
             <Tree options={[
                 'route a',
                 'route b'
             ]} defaultOpt={1} func={getChoice}/>
-		</>
+
+			<Pet pos={['600px',`1175px`]}/>
+
+		</div>
 	);
 }
